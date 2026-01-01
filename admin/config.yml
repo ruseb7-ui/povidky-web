@@ -1,5 +1,7 @@
 backend:
-  name: local
+  name: github
+  repo: ruseb7-ui/povidky-web
+  branch: main
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
