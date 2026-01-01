@@ -1,0 +1,16 @@
+backend:
+  name: local
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "povidky"
+    label: "Povídky"
+    folder: "povidky"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Název", name: "title", widget: "string" }
+      - { label: "Anotace", name: "description", widget: "text" }
+      - { label: "Obsah", name: "body", widget: "richtext" }

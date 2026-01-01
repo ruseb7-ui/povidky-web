@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moje povídky – čtečka</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====== PROMĚNNÉ ====== */
+:root {
+  --bg-light: #fdf6e3;
+  --text-light: #2f2f2f;
+  --accent-light: #6b0f1a;   /* vínová */
+
+  --bg-dark: #2b3440;
+  --text-dark: #e2e4e8;
+  --accent-dark: #4f7aa8;   /* modrošedá */
+
+  --font-size: 19px;
+  --line-height: 1.75;
+
+  --width-comfort: 900px;
+  --width-compact: 740px;
+}
+
+/* ====== ZÁKLAD ====== */
+body {
+  font-family: Georgia, serif;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  background: var(--bg-light);
+  color: var(--text-light);
+  padding: 2rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.container {
+  max-width: var(--width-comfort);
+  margin: auto;
+}
+
+/* ====== PŘEPÍNAČE ====== */
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+button {
+  background: none;
+  border: 2px solid currentColor;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+button:hover {
+  background: currentColor;
+  color: var(--bg-light);
+}
+
+body.dark button:hover {
+  color: var(--bg-dark);
+}
+
+/* ====== NADPISY ====== */
+h1 {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin: 3.5rem 0 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 4px solid var(--accent-light);
+}
+
+body.dark h2 {
+  border-color: var(--accent-dark);
+}
+
+/* ====== PRVNÍ VĚTA KAPITOLY ====== */
+.chapter-first {
+  display: block;
+  font-style: italic;
+  margin-bottom: 1.2rem;
+}
+
+/* ====== ILUSTRACE ====== */
+img {
+  max-width: 100%;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 10px;
+}
+
+/* ====== KOMPAKTNÍ REŽIM ====== */
+body.compact .container {
+  max-width: var(--width-compact);
+  line-height: 1.6;
+}
+
+/* ====== MOBIL ====== */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  .container {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="controls">
+    <button id="theme">🌗 Režim</button>
+    <button id="layout">📐 Čtení</button>
+  </div>
+
+  <h1>Ticho mezi stromy</h1>
+
+  <h2>Kapitola I – Návrat</h2>
+  <span class="chapter-first">Les byl tichý. Až nepřirozeně tichý.</span>
+  Vracel jsem se sem po letech a měl pocit, že tohle místo si pamatuje víc než já.
+
+  <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80" alt="Les">
+
+  <h2>Kapitola II – Dům</h2>
+  <span class="chapter-first">Dům stál na stejném místě.</span>
+  Okna byla tmavší, dveře těžší a ticho hlubší než dřív.
+
+  <img src="https://images.unsplash.com/photo-1523986371872-9d3ba2e2f9b0?auto=format&fit=crop&w=900&q=80" alt="Dům">
+
+  <h2>Kapitola III – Ozvěny</h2>
+  <span class="chapter-first">Některá místa neumí zapomenout.</span>
+  A některé příběhy se nechtějí nechat dopsat.
+
+</div>
+
+<script>
+const body = document.body;
+document.getElementById("theme").onclick = () => body.classList.toggle("dark");
+document.getElementById("layout").onclick = () => body.classList.toggle("compact");
+</script>
+
+</body>
+</html>
